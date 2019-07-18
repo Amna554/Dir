@@ -1,6 +1,10 @@
 <?php
 include "conn.php";
-   
+session_start();
+if(!isset($_SESSION['login'])){
+	header('Location:login.php');
+}
+
    $id = $_GET['id'];
    $m=mysqli_query($conn,"SELECT * FROM Directory WHERE id='$id'");
    $check=mysqli_fetch_array($m);

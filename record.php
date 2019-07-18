@@ -1,5 +1,10 @@
 <?php
- include "conn.php";
+include "conn.php";
+session_start();
+if(!isset($_SESSION['login'])){
+	header('Location:login.php');
+}
+
 ?>
   <html>
 <title> Mobile Phone Directory</title>
@@ -45,5 +50,5 @@
 <?php
      }?>
       </table>
-   </body>
+   </body><button><a href="logout.php">Logout</a></button>
 </html>

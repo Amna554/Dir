@@ -1,5 +1,9 @@
 <?php 
 include "conn.php";
+session_start();
+if(!isset($_SESSION['login'])){
+	header('Location:login.php');
+}
 
 $error=array();
 if(isset ($_POST['save'])){
@@ -75,7 +79,7 @@ foreach ($error as $value){
 
 <link  rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body  onload>
 <div >
 <form  class="form" method ="post">
 <p>
@@ -96,7 +100,7 @@ foreach ($error as $value){
  </p>
  <p>
  <input type="submit" name="save" id="btn"/>
-</p>
+</p> 
 </form>
 </div>
 

@@ -1,5 +1,10 @@
 <?php
 include "conn.php";
+session_start();
+if(!isset($_SESSION['login'])){
+	header('Location:login.php');
+}
+
   $id = $_GET['del'];
 
   $sql = "DELETE FROM Directory WHERE id='$id'";
